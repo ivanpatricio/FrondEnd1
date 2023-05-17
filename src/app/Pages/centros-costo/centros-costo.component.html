@@ -1,4 +1,6 @@
-<div class="mat-elevation-z8">
+<button *ngIf="autorizador === ''" mat-raised-button color="primary" type="reset" (click)="loginAutorizador()">Iniciar Sesion Autorizador</button>
+
+<div *ngIf="autorizador === ''" class="mat-elevation-z8">
     <button mat-raised-button color="primary" (click)="createCentro()">Nuevo Centro De Costos</button>
     <mat-form-field appearance="standard">
         <mat-label>Buscar</mat-label>

@@ -6,6 +6,7 @@ import { CentroCostosService } from 'src/app/Services/centro-costos.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CentrosModalComponent } from 'src/app/Modals/centros-modal/centros-modal.component';
 import { InfoComponent } from 'src/app/Modals/info/info.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,8 +17,8 @@ import { InfoComponent } from 'src/app/Modals/info/info.component';
 export class CentrosCostoComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['Codigo', 'Nombre Centro De Costos', 'Acciones'];
   dataSource = new MatTableDataSource<CentroCostos>();
-
-  constructor(private _ccService: CentroCostosService, public dialog: MatDialog) {
+  autorizador = ''
+  constructor(private _ccService: CentroCostosService, public dialog: MatDialog, private _router: Router) {
 
   }
 
@@ -28,7 +29,14 @@ export class CentrosCostoComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.getCentrosCosto();
+    this.autorizador = localStorage.getItem('autorizador') || ''
+    if (this.autorizador !== '') {
+      this.getCentrosCosto();
+    }
+  }
+
+  loginAutorizador(){
+    this._router.navigateByUrl('autorizador')
   }
 
   createCentro() {

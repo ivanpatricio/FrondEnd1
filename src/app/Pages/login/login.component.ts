@@ -40,13 +40,18 @@ export class LoginComponent implements OnInit {
         }, error: (e) => { }
       }
     )
+
+    if (localStorage.getItem('user')) {
+      this._router.navigateByUrl('/')
+    }
   }
 
   login() {
     this._usuarioService.get(this.form.value.codigo, this.form.value.contrasena).subscribe(val => {
       if (val.emisor === this.form.value.codigoEmisor) {
+        localStorage.setItem('user2', this.form.value.codigo)
         localStorage.setItem('user', JSON.stringify(val));
-        this._router.navigateByUrl('/')
+        this.openDialog('Bienvenido: ', val.nombreCompania + ' - ' + new Date(new Date().setSeconds(0,0)).toLocaleString())
       } else {
         this._router.navigateByUrl('/login')
         this.openDialog('Error', 'Emisor incorrecto!')

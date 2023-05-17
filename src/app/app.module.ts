@@ -29,6 +29,7 @@ import {MatSidenavModule} from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CentrosCostoComponent } from './Pages/centros-costo/centros-costo.component';
 import { CentrosModalComponent } from './Modals/centros-modal/centros-modal.component';
+import { AutorizadorComponent } from './Pages/autorizador/autorizador.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CentrosModalComponent } from './Modals/centros-modal/centros-modal.comp
     LoginComponent,
     InfoComponent,
     CentrosCostoComponent,
-    CentrosModalComponent
+    CentrosModalComponent,
+    AutorizadorComponent
   ],
   imports: [
     BrowserModule,

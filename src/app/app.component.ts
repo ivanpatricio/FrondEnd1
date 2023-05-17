@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from './Interfaces/usuario';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,12 @@ export class AppComponent {
   title = 'Frontend';
   isLogged: number;
   showFiller = false;
-
+  _user = ''
   constructor(private _router: Router) {
     this.isLogged = 0;
     if (localStorage.getItem('user')) {
       this.isLogged = 1;
+      this._user = localStorage.getItem('user2') || ''
     }
   }
 

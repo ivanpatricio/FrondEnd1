@@ -16,4 +16,8 @@ export class InfoComponent implements OnInit {
     this.msg = this.data.msg;
     this.title = this.data.title;
   }
+
+  reload(){
+    window.location.reload()
+  }
 }

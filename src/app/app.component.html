@@ -1,42 +1,42 @@
-
-    <p>
-        <mat-toolbar color="primary">
-
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>menu</mat-icon>
-              </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>building-fill-exclamation</mat-icon>
-              <span>Mantenimiento</span>
-            </button>
-            <button mat-menu-item >
-              <mat-icon>book</mat-icon>
-              <span>Centro de Costos</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>account_balance_wallet</mat-icon>
-              <span>Movimientos</span>
-            </button>
-            <button mat-menu-item>
-                <mat-icon>assignment</mat-icon>
-                <span>-Planilla</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon>perm_identity</mat-icon>
-                <span>-Trabajador</span>
-              </button>
-          </mat-menu>
-          <span>Proyecto</span>
-          <span class="example-spacer"></span>
-          <div *ngIf="isLogged == 0">
-            <mat-icon>forward</mat-icon>
-            <button mat-button (click)="navigate('/login')">Iniciar Sesión</button>
-        </div>
-        <div *ngIf="isLogged == 1">
-            <button mat-button (click)="navigate('/centros')">Centros de Costo</button>
-            <button mat-button (click)="logout()">Cerrar Sesión</button>
-        </div>
- </mat-toolbar>
- </p>
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>building-fill-exclamation</mat-icon>
+        <span>Mantenimiento</span>
+      </button>
+      <button mat-menu-item (click)="navigate('/centros')">
+        <mat-icon>book</mat-icon>
+        <span>Centro de Costos</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>account_balance_wallet</mat-icon>
+        <span>Movimientos</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>assignment</mat-icon>
+        <span>-Planilla</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>perm_identity</mat-icon>
+        <span>-Trabajador</span>
+      </button>
+    </mat-menu>
+    <span>Proyecto</span>
+    <span class="example-spacer"></span>
+    <div *ngIf="isLogged == 0">
+      <mat-icon>forward</mat-icon>
+      <button mat-button (click)="navigate('/login')">Iniciar Sesión</button>
+    </div>
+    <div *ngIf="isLogged == 1">
+      <button mat-button (click)="logout()">Cerrar Sesión</button>
+    </div>
+  </mat-toolbar>
+</p>
 <router-outlet></router-outlet>
+<div *ngIf="isLogged == 1">
+  <p>{{_user}}</p>
+</div>
